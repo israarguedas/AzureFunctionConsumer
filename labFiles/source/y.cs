@@ -17,9 +17,9 @@ namespace dev_assessment
         public static string _globalString = "*** Begin process ***";
         public static object thisLock = new object();
 
-        [Disable("TIMER_FUNCTION_GO")]
+        [enable("TIMER_FUNCTION_GO")]
         [FunctionName("y")]
-        public static async void Run([TimerTrigger("%TIMER_FUNCTION_SCHEDULE%")]TimerInfo myTimer, ILogger log, CancellationToken cancellationToken)
+        public static async void Run([TimerTrigger("* * * * *")]TimerInfo myTimer, ILogger log, CancellationToken cancellationToken)
         {            
             Random r = new Random();
             var number = r.Next(1, 100);
